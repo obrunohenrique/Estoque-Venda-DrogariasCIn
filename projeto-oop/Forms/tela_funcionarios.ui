@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tela_funcionarios</class>
+ <widget class="QDialog" name="tela_funcionarios">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>793</width>
+    <height>411</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource_file.qrc">
+    <normaloff>:/logo cin.png</normaloff>:/logo cin.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(230, 230, 230);
+color:black;</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">QTabWidget::pane {
+    border: 1px solid #ccc; /* Border around the tab widget */
+    background-color: #f0f0f0; /* Background color of the tab content area */
+}
+
+QTabBar::tab {
+    background: rgb(255, 150, 150); /* Background color of inactive tabs */
+    border: 1px solid #ccc; /* Border around tabs */
+    padding: 10px; /* Padding inside tabs */
+    font-size: 14px; /* Font size of tab text */
+    color: #333; /* Text color of inactive tabs */
+}
+
+QTabBar::tab:selected {
+    background: rgb(255, 170, 170); /* Slightly lighter/different shade for the active tab */
+    border: 1px solid #333; /* Wider border for the selected tab */
+    border-bottom-color: rgb(255, 170, 170); /* Match the border color to the background */
+    color: #000; /* Text color of the selected tab */
+}
+
+QTabBar::tab:hover {
+    background: rgb(255, 120, 120); /* Slightly darker red when hovered */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* Add a small margin to non-selected tabs */
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="title">
+       <string>Funcionários</string>
+      </attribute>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>471</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Pesquisar:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_pesquisa">
+                <property name="styleSheet">
+                 <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnPesquisar">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Pesquisar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnLimpar">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>Limpar</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="styleSheet">
+           <string notr="true">QTableWidget {
+    background-color: white;
+    color: black;
+    gridline-color: #e1e1e1;
+	border: 2px solid black
+}
+
+QTableWidget::item:selected {
+    background-color: #ffcccc; 
+    color: black;
+}
+
+QTableWidget::horizontalHeader {
+    background-color: #f0f0f0;
+    border: none;
+}
+
+QTableWidget::verticalHeader {
+    background-color: #f0f0f0;
+    border: none;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>10</y>
+         <width>261</width>
+         <height>216</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>  Usuário</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_usuario">
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>  Nome</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_nome">
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>  Senha</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_senha">
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>  ID</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_id">
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Tipo de Acesso</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_acesso">
+              <property name="styleSheet">
+               <string notr="true">background-color: white;
+color:black;</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>A</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>B</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QPushButton" name="btnExcluir">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Excluir Usuário</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnEditar">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Atualizar Usuário</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Novo Funcionário</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <widget class="QLabel" name="label_6">
+                 <property name="text">
+                  <string>Username</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="inputUsername">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <item>
+                <widget class="QLabel" name="label_7">
+                 <property name="text">
+                  <string>Nome</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="inputNome">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <item>
+                <widget class="QLabel" name="label_8">
+                 <property name="text">
+                  <string>Senha</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="inputSenha">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+                 </property>
+                 <property name="echoMode">
+                  <enum>QLineEdit::EchoMode::Password</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_12">
+               <item>
+                <widget class="QLabel" name="label_9">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Tipo de acesso</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_8">
+                 <item>
+                  <widget class="QRadioButton" name="radioFuncionario">
+                   <property name="styleSheet">
+                    <string notr="true">QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 150, 150);
+    border: 1px solid black;
+}
+
+</string>
+                   </property>
+                   <property name="text">
+                    <string>Funcionário</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="radioAdm">
+                   <property name="styleSheet">
+                    <string notr="true">QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 150, 150);
+    border: 1px solid black;
+}
+
+</string>
+                   </property>
+                   <property name="text">
+                    <string>Administrador</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QPushButton" name="btn_cancelar">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>44</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Cancelar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_cadastrar">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>44</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Cadastrar Usúario</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource_file.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>date_selection</class>
+ <widget class="QDialog" name="date_selection">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>237</width>
+    <height>67</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource_file.qrc">
+    <normaloff>:/logo cin.png</normaloff>:/logo cin.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(230, 230, 230);
+color:black;</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Selecione a data de hoje:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Confirmar</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource_file.qrc"/>
+ </resources>
+ <connections/>
+</ui>

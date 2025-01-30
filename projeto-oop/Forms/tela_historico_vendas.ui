@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tela_historico_vendas</class>
+ <widget class="QDialog" name="tela_historico_vendas">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>915</width>
+    <height>384</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource_file.qrc">
+    <normaloff>:/logo cin.png</normaloff>:/logo cin.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(230, 230, 230);
+color:black;</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>301</width>
+     <height>226</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Selecione o dia:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+color:black;
+</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_confirm_date">
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>confirmar data</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Filtragem</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_produto">
+      <property name="styleSheet">
+       <string notr="true">QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 150, 150);
+    border: 1px solid black;
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Produto</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_vendedor">
+      <property name="styleSheet">
+       <string notr="true">QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 150, 150);
+    border: 1px solid black;
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Vendedor</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButton_payment">
+      <property name="styleSheet">
+       <string notr="true">QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(255, 150, 150);
+    border: 1px solid black;
+}
+
+</string>
+      </property>
+      <property name="text">
+       <string>Forma de Pagamento</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLineEdit" name="lineEdit_filtrar">
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_filtrar">
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Filtrar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="btn_deletar">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>deletar venda</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>311</x>
+     <y>1</y>
+     <width>601</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: white;
+    color: black;
+    gridline-color: #e1e1e1;
+	border: 2px solid black
+}
+
+QTableWidget::item:selected {
+    background-color: #ffcccc; 
+    color: black;
+}
+
+QTableWidget::horizontalHeader {
+    background-color: #f0f0f0;
+    border: none;
+}
+
+QTableWidget::verticalHeader {
+    background-color: #f0f0f0;
+    border: none;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_total">
+        <property name="font">
+         <font>
+          <pointsize>17</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;</string>
+        </property>
+        <property name="text">
+         <string>Total Vendido: </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resource_file.qrc"/>
+ </resources>
+ <connections/>
+</ui>

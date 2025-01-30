@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tela_pesquisar_produto</class>
+ <widget class="QDialog" name="tela_pesquisar_produto">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>478</width>
+    <height>301</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource_file.qrc">
+    <normaloff>:/logo cin.png</normaloff>:/logo cin.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Pesquisar produto por nome</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_pesquisa">
+             <property name="styleSheet">
+              <string notr="true">background-color: white;
+color:black;
+border: 1px solid black;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+           </property>
+           <property name="text">
+            <string>pesquisar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="styleSheet">
+          <string notr="true">QTableWidget {
+    background-color: white;
+    color: black;
+    gridline-color: #e1e1e1;
+	border: 2px solid black
+}
+
+QTableWidget::item:selected {
+    background-color: #ffcccc; 
+    color: black;
+}
+
+QTableWidget::horizontalHeader {
+    background-color: #f0f0f0;
+    border: none;
+}
+
+QTableWidget::verticalHeader {
+    background-color: #f0f0f0;
+    border: none;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    color: rgb(0, 0, 0);
+	background-color:rgb(255, 150, 150);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 131, 131);
+}
+
+QPushButton:pressed {
+    background-color: rgb(255, 131, 131);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>confirmar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource_file.qrc"/>
+ </resources>
+ <connections/>
+</ui>
