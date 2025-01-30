@@ -17,13 +17,13 @@ Clique no link e faça download do instalador compartilhado: [Clique-Aqui](https
 ## Imagens do Sistema
 
 ### Tela de Login
-![Print da tela de login](https://github.com/obrunohenrique/Estoque-Venda-DrogariasCIn/tree/main/projeto-oop/Resources/images/tela_login.png)
+<img src="projeto-oop/Resources/images/tela_login.png" alt="Print da tela de login">
 
 ### Quadro de funcionários
-![Print da tela do quadro de funcionários](https://github.com/obrunohenrique/Estoque-Venda-DrogariasCIn/tree/main/projeto-oop/Resources/images/tela_funcionario.png)
+<img src="projeto-oop/Resources/images/tela_funcionario.png" alt="Print da tela do quadro de funcionários">
 
 ### Tela de vendas
-![Print da tela vendas](https://github.com/obrunohenrique/Estoque-Venda-DrogariasCIn/tree/main/projeto-oop/Resources/images/nova_venda.png)
+<img src="projeto-oop/Resources/images/nova_venda.png" alt="Print da tela de vendas">
 
 ### Tela do histórico de vendas
-![Print da tela do histórico de vendas](https://github.com/obrunohenrique/Estoque-Venda-DrogariasCIn/tree/main/projeto-oop/Resources/images/historico-vendas.png)
+<img src="projeto-oop/Resources/images/historico-vendas.png" alt="Print da tela de histórico de vendas">
