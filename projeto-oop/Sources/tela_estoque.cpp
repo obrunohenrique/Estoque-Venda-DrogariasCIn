@@ -2,47 +2,60 @@
 #include "ui_tela_estoque.h"
 #include <QDebug>
 
+// Construtor da tela de estoque que recebe um widget pai
 tela_estoque::tela_estoque(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::tela_estoque)
 {
+    // Configura a interface do usuário
     ui->setupUi(this);
+    // Define o foco inicial para o campo de código
     ui->lineEdit_codigo->setFocus();
+    // Define o número de colunas da tabela
     ui->tableWidget_produtos->setColumnCount(2);
+    // Define a aba inicial
     ui->tab_widget->setCurrentIndex(0);
+    // Tenta abrir conexão com o banco de dados
     if (!con.abrir_conexao()) {
         qDebug() << "erro na conexão";
         return;
     }
+    // Define o título da janela
     this->setWindowTitle("Estoque");
 }
 
+// Destrutor que fecha a conexão com o banco e limpa a memória
 tela_estoque::~tela_estoque()
 {
     con.fechar_conexao();
     delete ui;
 }
 
+// Função chamada quando Enter é pressionado no campo de código
 void tela_estoque::on_lineEdit_codigo_returnPressed()
 {
+    // Move o foco para o campo de descrição
     ui->lineEdit_descricao->setFocus();
 }
 
-
+// Função chamada quando Enter é pressionado no campo de descrição
 void tela_estoque::on_lineEdit_descricao_returnPressed()
 {
+    // Move o foco para o campo de quantidade
     ui->lineEdit_qtd->setFocus();
 }
 
-
+// Função chamada quando Enter é pressionado no campo de quantidade
 void tela_estoque::on_lineEdit_qtd_returnPressed()
 {
+    // Move o foco para o campo de valor
     ui->lineEdit_valor->setFocus();
 }
 
-
+// Função chamada quando o botão novo é clicado
 void tela_estoque::on_btn_novo_clicked()
 {
+    // Define o foco para o campo de código e limpa todos os campos
     ui->lineEdit_codigo->setFocus();
     ui->lineEdit_codigo->clear();
     ui->lineEdit_descricao->clear();
@@ -50,15 +63,17 @@ void tela_estoque::on_btn_novo_clicked()
     ui->lineEdit_valor->clear();
 }
 
-
+// Função chamada quando Enter é pressionado no campo de valor
 void tela_estoque::on_lineEdit_valor_returnPressed()
 {
+    // Simula o clique no botão gerar novo
     ui->btn_gerar_novo->clicked();
 }
 
-
+// Função chamada quando o botão gerar novo é clicado
 void tela_estoque::on_btn_gerar_novo_clicked()
 {
+    // Obtém os valores dos campos
     codigo = ui->lineEdit_codigo->text();
     descricao = ui->lineEdit_descricao->text();
     qtd = ui->lineEdit_qtd->text();
@@ -66,9 +81,11 @@ void tela_estoque::on_btn_gerar_novo_clicked()
     valor.replace(',','.');
     QString valor_formatado = QString::number(valor.toFloat(), 'f', 2);
 
+    // Verifica se algum campo obrigatório está vazio
     if(codigo == "" or descricao == "" or valor == ""){
         QMessageBox::warning(this, "ERRO", "Todos os Campos devem ser preenchidos");
     }else{
+        // Verifica se o produto já existe
         QSqlQuery checkQuery;
         checkQuery.prepare("SELECT * FROM tb_Produtos WHERE cod_produto = :codigo OR nome_produto = :descricao");
         checkQuery.bindValue(":codigo", codigo.toInt());
@@ -78,6 +95,8 @@ void tela_estoque::on_btn_gerar_novo_clicked()
             QMessageBox::warning(this, "Erro", "Produto já cadastrado com o mesmo código ou nome.");
             return;
         }
+        
+        // Prepara query para inserir novo produto
         QSqlQuery query;
         query.prepare("INSERT INTO tb_Produtos(cod_produto, nome_produto, preco_produto, qtd_produto) "
                       "VALUES (:codigo, :descricao, :valor, :qtd)");
@@ -94,10 +113,10 @@ void tela_estoque::on_btn_gerar_novo_clicked()
             if (errorText.contains("UNIQUE constraint failed") || errorText.contains("duplicate key")) {
                 QMessageBox::warning(this, "Erro", "Produto já cadastrado.");
             } else {
-                // Exibe erro genérico caso não seja esse
                 QMessageBox::warning(this, "Erro", "Erro ao adicionar o produto: " + query.lastError().text());
             }
         }
+        // Limpa os campos e retorna o foco para o código
         ui->lineEdit_codigo->setFocus();
         ui->lineEdit_codigo->clear();
         ui->lineEdit_descricao->clear();
@@ -105,7 +124,6 @@ void tela_estoque::on_btn_gerar_novo_clicked()
         ui->lineEdit_valor->clear();
     }
 }
-
 
 void tela_estoque::on_tab_widget_currentChanged(int index)
 {
@@ -165,7 +183,6 @@ void tela_estoque::remove_rows(QTableWidget *tw)
     qDebug() << "Remoção de linhas concluída.";
 }
 
-
 void tela_estoque::on_tableWidget_produtos_itemSelectionChanged()
 {
     int currentRow = ui->tableWidget_produtos->currentRow();
@@ -219,7 +236,6 @@ void tela_estoque::on_btn_att_ge_clicked()
     }
 }
 
-
 void tela_estoque::on_btn_excluir_ge_clicked()
 {
     QMessageBox::StandardButton quest = QMessageBox::question(this, "Excluir", "Gostaria de Excluir", QMessageBox::Yes|QMessageBox::No);
@@ -242,7 +258,6 @@ void tela_estoque::on_btn_excluir_ge_clicked()
         }
     }
 }
-
 
 void tela_estoque::on_btn_procurar_clicked()
 {

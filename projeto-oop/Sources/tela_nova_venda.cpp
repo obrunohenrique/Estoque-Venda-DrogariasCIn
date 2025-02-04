@@ -3,73 +3,94 @@
 #include "tela_finalizar_venda.h"
 #include "tela_pesquisar_produto.h"
 
+// Construtor da tela de nova venda que recebe um widget pai
 tela_nova_venda::tela_nova_venda(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::tela_nova_venda)
 {
+    // Configura a interface do usuário
     ui->setupUi(this);
+    // Define tamanho mínimo e máximo da janela
     this->setMinimumSize(511, 394);
     this->setMaximumSize(511, 394);
 
+    // Obtém o código do produto
     prod_id = ui->lineEdit_codigo->text();
+    // Abre conexão com o banco de dados
     con.abrir_conexao();
+    // Define o foco inicial para o campo de funcionário
     ui->lineEdit_funcionario->setFocus();
+    
+    // Configura a tabela se ainda não tiver colunas
     if (ui->tableWidget->columnCount() == 0) {
         QStringList cabecalho = {"Código", "Produto", "Quantidade", "Valor Unitário"};
         ui->tableWidget->setColumnCount(4);
         ui->tableWidget->verticalHeader()->setDefaultSectionSize(30);
         ui->tableWidget->setHorizontalHeaderLabels(cabecalho);
     }
+    // Atualiza o label do total da venda
     ui->label_total->setText("Total: R$" + QString::number(total_venda, 'f', 2).replace('.', ','));
+    // Define o título da janela
     this->setWindowTitle("Nova Venda");
 }
 
+// Destrutor que fecha a conexão com o banco e limpa a memória
 tela_nova_venda::~tela_nova_venda()
 {
     delete ui;
     con.fechar_conexao();
 }
 
+// Função chamada quando Enter é pressionado no campo de funcionário
 void tela_nova_venda::on_lineEdit_funcionario_returnPressed()
 {
+    // Obtém o ID do funcionário
     id = ui->lineEdit_funcionario->text();
     QSqlQuery query;
+    // Prepara query para buscar dados do funcionário
     query.prepare("SELECT * FROM tb_Usuarios WHERE ID = :id");
     query.bindValue(":id", id);
     if(query.exec() && query.first()){
+        // Se encontrou o funcionário, armazena seus dados
         if (query.value(1).toString() != ""){
             acesso = query.value(2).toString();
             nome = query.value(3).toString();
             id = query.value(4).toString();
+            // Exibe o nome do funcionário
             ui->label_funcionario->setText(nome);
             check();
             ui->lineEdit_codigo->setFocus();
         }
     } else {
+        // Exibe mensagem de erro se não encontrar o funcionário
         QMessageBox::warning(this, "ERRO", "Não existe funcionário com este id");
         ui->lineEdit_funcionario->setFocus();
         ui->lineEdit_funcionario->clear();
     }
 }
 
-
+// Função chamada quando Enter é pressionado no campo de código
 void tela_nova_venda::on_lineEdit_codigo_returnPressed()
 {
     prod_id = ui->lineEdit_codigo->text();
     QSqlQuery query;
+    // Prepara query para buscar dados do produto
     query.prepare("SELECT * FROM tb_Produtos WHERE cod_produto = :prod_id");
     query.bindValue(":prod_id", prod_id);
     if(query.exec() && query.first()){
+        // Se encontrou o produto, armazena seus dados
         if (query.value(1).toString() != ""){
             prod_nome = query.value(1).toString();
             prod_id = query.value(0).toString();
             prod_preco = query.value(2).toString();
         }
+        // Exibe o nome do produto
         ui->label_produto->setText(prod_nome);
         ui->lineEdit_qtd->setFocus();
         ui->lineEdit_qtd->setText("1");
         check();
     }else{
+        // Se não encontrou por código, tenta buscar por nome
         int teste = ui->lineEdit_codigo->text().toInt();
         if(teste == 0){
             nome_pesquisar = ui->lineEdit_codigo->text();
@@ -93,13 +114,13 @@ void tela_nova_venda::on_lineEdit_codigo_returnPressed()
                 }
             }
         }else{
+            // Exibe mensagem de erro se não encontrar o produto
             QMessageBox::warning(this, "ERRO", "Código de Produto inválido");
             ui->lineEdit_codigo->clear();
             ui->lineEdit_codigo->setFocus();
         }
     }
 }
-
 
 void tela_nova_venda::on_lineEdit_qtd_returnPressed()
 {
@@ -113,7 +134,6 @@ void tela_nova_venda::on_lineEdit_qtd_returnPressed()
         ui->lineEdit_valor_un->setFocus();
     }
 }
-
 
 void tela_nova_venda::on_lineEdit_valor_un_returnPressed()
 {
@@ -158,7 +178,6 @@ void tela_nova_venda::on_lineEdit_delete_returnPressed()
     ui->btn_delete->click();
     ui->lineEdit_codigo->setFocus();
 }
-
 
 void tela_nova_venda::on_btn_delete_clicked()
 {
@@ -205,7 +224,6 @@ void tela_nova_venda::limpar_campos()
     ui->label_produto->clear();
 }
 
-
 QList<QList<QString>> tela_nova_venda::getTabelaVenda()
 {
     QList<QList<QString>> tabelaDados;
@@ -221,7 +239,6 @@ QList<QList<QString>> tela_nova_venda::getTabelaVenda()
 
     return tabelaDados;
 }
-
 
 void tela_nova_venda::on_btn_confirmar_clicked()
 {
